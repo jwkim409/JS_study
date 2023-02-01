@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JS 연습</title>
+  </head>
+  <body>
+  <script>
+
+
+// 변수 -> 숫자, 문자, boolean(참 거짓)
+  let a = "값"
+  let b = 100
+  let c = true
+  let d = false
+  
+  let a2 = "은 뭘까요?"
+  let a3 = a + a2;
+  console.log(a3)
+  let b2 = 200;
+  let b3 = b + b2;
+  console.log(b3)
+  let ab = a + b;
+  console.log(ab)
+  let c2 = 10 > 5;
+  console.log(c2)
+  
+  console.log(b - b2)
+  console.log(b * b2)
+  console.log(b / b2)
+  console.log(b % b2) // %는 나머지
+  
+  let str = "문자"
+  let str2 = '문자'
+  let str3 = `문자`
+  
+  console.log(`저의 나이는 ${b}`);
+  
+  
+// 배열
+  let arr = [1,2,3,4,'문자',true,false]
+  console.log(arr[5])
+  
+  arr.push("값") // push는 값 추가, arr.치면 아래 여러 함수가 나오는데,
+                 // javascript array function이라고 구글링
+  console.log(arr)
+  
+  
+//객체
+  let obj = {
+            "key":"value",
+            "key2":"value2"
+  }
+  console.log(obj)
+  
+  
+  // 사전 형식으로 쓸 때 이용 배열과 객체를 합쳐서
+  let dic = [
+      {"a":"apple"},
+      {"b":"banana"},
+      {"c":"cloud"}
+  ]
+  console.log(dic)
+  
+  
+//복습
+  let api = {
+    "page": 1,
+    "total_results": 10000,
+    "total_pages": 500,
+    "results":[
+      {
+        "popilarity": 3130.643,
+        "vote_count": 143,
+        "video": false,
+        "genere_ids": [
+          18,
+          878,
+          53
+        ],
+        "title": "2067",
+        "vote_average": 5.8 
+      }
+    ]
+  }
+  // vote_count의 값을 알고 싶으면 객체의 키값에 접근, value에 몇 번째 값인지, 그 안에 보트카운트 키
+  console.log(api.results[0].vote_count)
+  //왜 0임?? 보트카운트는 1 아닌가
+  
+  
+
+//반복문(for문)과 조건문 / and(&&) or(||) 연산자
+  let arre = [1,2,3,4,5,6,7];
+  for(let i=0; i < arre.length; i++){
+    
+    if(arre[i] % 2 == 0 && arre[i] == 2){
+      console.log(arre[i])
+    }
+  
+   // }else if(arre[i] == 2){
+  
+   // }else if(aree[i] == 4){
+  
+   // }else{
+  
+    //}
+  }
+  // i=0( i=index번호. 배열에서 몇 번째부터 돌 것인가 (얘는 0번째부터) )
+  
+
+
+//함수
+  //    function x(){
+    //    return 100  -> 결과값을 반환한다(반환 안 하려면 return 없어도 ok)
+  //    }
+  //    let y = x()
+  //    console.log(y)  ->  100
+
+  function x(num1,num2){
+    return num1 + num2
+  }
+  let y = x(100,200)
+  console.log(y)
+
+  
+  let stri = "대-한-민-국-만-세"
+  let stri2 = stri.split("-") // splii -> 문자열을 배열로 만들어 줌 // ("-")하면 문자를 -기준으로 쪼개서 하나씩 넣음
+  console.log(stri2)
+
+  let stri3 = stri2.join("*") // join -> 배열 합침. 문자열로 만들어 줌
+  console.log(stri3)
+
+  console.log(stri.indexOf("한")) // "한"이 있는지 찾아볼 때. 값은 2가 나옴(대(0) -(1) 한(2))
+  
+
+  // javascript string function 구글링
+  
+  </script>
+
+    </body>
+    </html>
+      

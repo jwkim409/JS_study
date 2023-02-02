@@ -1,0 +1,22 @@
+* {
+  font-family: 'Jua', sans-serif;
+}
+
+body{
+  background-color: #333;
+}
+
+#jumbotron{
+  padding: 45px;
+  margin-top: 30px;
+  text-align: center;
+  background-color: aliceblue;
+}
+
+#review-btn{
+  width: 100%;
+}
+
+#movie-list{
+  margin: 20px 109px 0;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/2강.css">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <div class ="alert-box" id="alert">
+    <p class="title1">알림창임</p>
+    <button id="close">닫기</button>
+    </div>
+    <button onclick="아이디알림창('아이디를 입력하세요');">버튼1</button>
+    <button onclick="비번알림창('비번을 입력하세요');">버튼2</button>
+
+
+    
+  <script>
+
+    // 이벤트리스너: 파라미터 두 개 필요함
+    // 파라미터 자리에 들어가는 함수(코드 순차적으로 실행할 때 가끔 보임): 콜백함수 function(){}
+    // 1. 얘를  2. 클릭하면  3. 함수 코드를 실행해줌
+    document.getElementById('close').addEventListener('click', function(){
+      document.getElementById('alert').style.display = 'none';
+    });
+
+
+   // class는 중복될 수 있음. [0]은 위에서부터 몇 번째 class인지 알려줌.
+    function 아이디알림창(){
+      document.getElementsByClassName('title1')[0].innerHTML = "아이디를 입력하세요";
+      document.getElementById('alert').style.display  = 'block';
+    }
+
+    function 비번알림창(){
+      document.getElementsByClassName('title1')[0].innerHTML = "비번를 입력하세요"
+      document.getElementById('alert').style.display  = 'block';
+    }
+
+
+    </script>
+
+
+</body>
+</html>

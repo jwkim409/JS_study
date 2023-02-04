@@ -1,0 +1,8 @@
+.alert-box{
+  background-color: skyblue;
+  padding: 20px;
+  color: white;
+  border-radius: 5px;
+  display: none;
+  /* ui 숨기고 싶어요 -> display: none;  보이고 싶어요 -> block; */
+}

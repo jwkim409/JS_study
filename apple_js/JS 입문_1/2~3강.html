@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/2강.css">
+</head>
+<body>
+  
+  <!-- ui 법칙 스텝 1) html/css로 미리 디자인(필요하면 미리 숨김)  2) 필요할 때 보여달라고 코드 짬(JS로) -->
+
+  <div class ="alert-box" id="alert">알림창임
+  <!-- <button onclick="document.getElementById('alert').style.display='none';">닫기</button> -->
+  <button onclick="알림창닫기()">닫기</button>
+  </div>
+  <!-- <button onclick=" document.getElementById('alert').style.display='block';">버튼</button> -->
+  <button onclick="알림창열기()">버튼</button>
+
+
+  <script>
+
+    // 함수 왜 씀? -> 긴 코드를 짧게 줄이고 싶을 때 함수 씀 / 코드 재사용 할 때도 편리
+
+    function 알림창열기() {
+     document.getElementById('alert').style.display='block';
+    }
+
+    function 알림창닫기() {
+      document.getElementById('alert').style.display='none';
+    }
+
+  </script>
+</body>
+</html>

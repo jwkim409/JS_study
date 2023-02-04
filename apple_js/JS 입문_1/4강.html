@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/2강.css">
+</head>
+<body>
+
+
+  <div class ="alert-box" id="alert">알림창임
+    <!-- <button onclick="document.getElementById('alert').style.display='none';">닫기</button> -->
+    <button onclick="알림창열기('none');">닫기</button>
+    </div>
+    <!-- <button onclick=" document.getElementById('alert').style.display='block';">버튼</button> -->
+    <button onclick="알림창열기('block');">버튼</button>
+
+
+    
+  <script>
+
+
+    //구멍 어디다 씀? 구멍 -> 파라미터 (구멍1, 구멍2) 가능
+
+    function 알림창열기(구멍) {
+     document.getElementById('alert').style.display = 구멍;
+    }
+
+    // 알림창열기('block');  구멍 자리에 'block' 넣어서 코드 실행해줘 (18줄)
+
+
+    function plus(구멍){
+      2 + 구멍
+    }
+  
+    plus(1); // 구멍 자리에 1 넣어줘
+    plus(2);
+
+
+  </script>
+</body>
+</html>

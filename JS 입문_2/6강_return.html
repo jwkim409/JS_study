@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../JS 입문_1/css/7강.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  </head>
+  <body class = "dark-mode">
+
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인 하세요</h4>
+
+        <!-- <form>은 서버로 유저 정보 전송하려고 쓰는 것 (form action 쓰기)-->
+        <form action="success.html">
+          <div class="my-3">
+            <input type="text" class="form-control" id="email">
+           </div>
+           <div class="my-3">
+             <input type="password" class="form-control" id="pw">
+           </div>
+           <button type="submit" class="btn btn-primary" id="send">전송</button>
+           <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form> 
+        
+      </div>
+    </div> 
+
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">JSShop</span>
+        <span class="badge bg-dark" style="cursor: pointer;">Dark 🔄</span>
+        <button class="navbar-toggler" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav> 
+
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li>
+    </ul> 
+
+    <div class = "main-bg">
+      <h4 style="color:black;">Shirts on Sale</h4>
+    <button id="login" class="btn btn-danger">로그인</button>
+    </div>
+
+    <!-- 타이머 -->
+    <div class="alert alert-danger">
+      <span id="num">5</span>초 이내 구매 시 사은품 증정
+    </div>
+
+    <!-- 캐러셀 -->
+  <div style="overflow: hidden">
+    <div class="slide-container">
+      <div class="slide-box">
+        <img src="./img/car1.png">
+      </div>
+      <div class="slide-box">
+        <img src="./img/car2.png">
+      </div>
+      <div>
+        <img src="./img/car3.png" style="width: 100vw;">
+      </div>
+    </div>
+  </div>
+
+  <button class="slide-1">1</button>
+  <button class="slide-2">2</button>
+  <button class="slide-3">3</button>
+  <button class="next">다음</button>
+
+
+
+    <script>
+
+   // return
+      
+      function 함수(){
+        return 123    // 함수 쓰고 나서 그 자리에 123 퉤!!! 뱉어주세요(반환해주세요)
+      }
+
+      var 변수 = 함수();   // 함수()는 리턴123이니까
+      console.log(변수);   // 123 퉤 뱉음
+
+       // returm은 함수 종료 기능도 가지고 있음. 리턴 밑에 적으면 리턴 적용 안 됨.
+       // 리턴 용도? -> 자료를 넣으면 다른 자료과 나오는 변환기 만들고 싶을 때 f(x) 개념임 그냥
+
+       // (예시) 쇼핑몰 만든다고 침.
+        //가격이 50000원, 부가세 ???원 붙이고 싶음.
+
+       console.log(50000 * 0.1)
+
+      // 쇼핑몰은 물건이 많고 가격이 많이 붙으니 부가세 계산이 많이 필요함. 부가세(vat) 계산기가 필요!!
+
+      function vat(a){
+        return a * 0.1
+      }
+      vat(50000)  //가격 넣으면 부가세 계산해서 나와짐.
+      console.log(vat(50000));
+      console.log(vat(60000));
+
+
+        // * 특이사항 - 소수점 숫자 연산 시 주의점
+          // 아주 작은 오차 발생할 수 있음. 컴터는 2진수로 되어있어서 소수점 이진수로 바뀌면 개길어져서 걍 자름
+      function vat(a){
+        var num = (a * 1.1).toFixed(1);  // 소수점 반올림   숫자.toFixed(몇자리) 얜 문자로 변환됨
+        return parseFloat(num)  // parseFloat는 숫자로 변환함
+      }
+
+      // Q1
+              // 함수(분,초)
+              // return N ms
+              // 1초 = 1000ms
+              // 1분 = 60000ms
+      function time(분,초){
+        return 분*60000 + 초*1000
+      }
+      console.log(time(1,30))
+
+      // Q2
+      function 구매함수(가격,첫구매){
+        var 결과 = 가격 * 90/100;
+        if(첫구매 == true){
+          가격 = 결과 - 1.5;
+        } return 결과
+      }
+      console.log(구매함수(70, false));
+
+
+
+
+  // 타이머!! setTimeout(function(){ 코드~~~ }, ms단위)  1000ms = 1초
+      // 5초 후에 .alert 숨겨주세요
+      setTimeout(function(){
+        $('.alert').hide();
+      }, 5000);
+      
+      // 5초 4초 3초... 숫자 줄어들게 만들기
+      var 카운트 = 5;
+
+      setInterval(function(){
+        카운트--;
+        if(count >= 0){
+          document.querySelector('#num').innerHTML = 카운트;
+        }
+      }, 1000);
+
+
+    // 이메일 형식 검사
+
+      $('form').on('submit', function(){
+      var 아이디입력값 = document.getElementById('email').value;
+      var 비번입력값 = document.getElementById('pw').value;
+     
+          if(아이디입력값 == ''){
+            alert('아이디를 입력하세요.');
+          }
+          if (/\S+@\S+\.\S+/.test(아이디입력값) == false){
+            alert('이메일 형식이 아닙니다.');
+          }
+          if (/[A-Z]/.test(비번입력값) == false){
+            alert('비밀번호에 대문자가 없습니다.');
+          }
+        });
+
+
+    // 캐러셀
+    // 2번 버튼 클릭하면  움직이는 스타일 추가해줘
+        $('.slide-1').on('click', function(){
+          $('.slide-container').css('transform', 'translateX(0vw)');
+        });
+        $('.slide-2').on('click', function(){
+          $('.slide-container').css('transform', 'translateX(-100vw)');
+        });
+        $('.slide-3').on('click', function(){
+          $('.slide-container').css('transform', 'translateX(-200vw)');
+        });
+
+
+    // 캐러셀 다음 버튼
+
+        var 지금사진 = 1;
+        
+        $('.next').on('click', function(){
+          $('.slide-container').css('transform', 'translateX(-' + 지금사진 + '00vw)');
+          지금사진 += 1;
+        })
+
+
+
+
+
+      /////////////////////////////////JS 입문_1////////////////////////////////////
+
+      // 로그인 버튼 누르면 show-modal 클래스 저기 붙여주셈
+      $('#login').on('click', function(){
+        $('.black-bg').addClass('show-modal');
+      })
+
+      // 닫기 누르면 닫힘
+      $('#close').on('click', function(){
+        $('.black-bg').toggle('none');
+      })
+
+      // querySelector(All) 이용
+      document.querySelector('.navbar-toggler').addEventListener('click', function(){
+        document.querySelectorAll('.list-group')[0].classList.toggle('show');
+      })
+
+      // <input>에서 일어나는 input 이벤트, 왼쪽에 유저가 입력한 값이 변할 때 실행됨
+      // change 이벤트는 <input>에 입력한 값이 바뀌고 포커스를 잃을 때(다른 데 클릭) 발생
+       document.getElementById('email').addEventListener('input', function(){
+        console.log('안녕')
+      })
+
+      // *다크모드 만들기*
+      var count = 0; // 뱃지 클릭 횟수
+      $('.badge').on('click', function(){
+        count = count + 1;       // 카운터 변수에 1을 더해주세요(등호는 오른쪽에 있는 걸 왼쪽에 집어넣음!!) *변수 +1 하는 법  1) 변수++  2) 변수+=1  3) 변수=변수+1
+        if(count % 2 === 1){
+         $('.badge').html("Light🔄");
+        }else{
+          $('.badge').html("Dark🔄");
+        }
+      });
+
+      $('.badge').on('click',function(){
+        $(".dark-mode").toggleClass("dark white");});
+
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>

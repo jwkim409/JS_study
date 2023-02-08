@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+  <script>
+
+// Q1. array에서 철수라는 이름 찾기
+
+ var 출석부 = ['흥민', '영희', '철수', '재석'];
+
+//  지금 들어온 파라미터가 array[0]이랑 같냐?
+//  지금 들어온 파라미터가 array[1]이랑 같냐?
+  // 비슷한 if문 4개 출력 -> 반복문
+
+function 이름찾기(name){
+  for(i = 0; i < 출석부.length; i++){
+    if(name == 출석부[i]){
+      console.log('있어요')
+    }
+  }}
+
+  이름찾기('철수');
+
+
+
+// Q2. 구구단 출력
+
+  for(let k = 2; k < 10; k++){
+    for (let i = 1; i < 10; i++){
+      document.write(k + 'x' + i + '=' + (k * i) + '</br>'); 
+    }
+  }
+
+
+
+// Q3. 평균점수 계산기
+
+function 함수(예전성적, 지금성적){
+    
+    var 예전결과 = 0;
+  
+    for(let i = 0; i < 예전성적.length; i++){
+      예전결과 = 예전결과 + 예전성적[i]  // 평균은 첫 파라미터(array 자료)안에 있는 거 '다 더하고' 총 갯수로 나누기
+    // 예전결과 = 예전결과 + 예전성적[0]  -> 10 = 0 + 10
+    // 예전결과 = 예전결과 + 예전성적[1]  -> 20 = 0 + 20
+    // ......
+    // 예전결과 = 예전결과 + 예전성적[4]  -> 50 = 0 + 50
+    // 예전결과는 예전성적들 더한 것 (다 더하기)
+    }
+  
+    if(예존결과 / 예전성적.length < 지금성적){
+      console.log('올랐네요')
+    }else{
+      console.log('재수추천')
+    }
+  }
+  
+  함수([10,20,30,40,50],40)
+
+
+</script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>

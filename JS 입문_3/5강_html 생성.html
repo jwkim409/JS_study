@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <form class="container my-5 form-group">
+      <p>상품선택</p>
+      <select class="form-select mt-2">
+        <option>모자</option>
+        <option>셔츠</option>
+        <option>바지</option>
+      </select>
+      <select class="form-select mt-2 form-hide">
+        <option class="사이즈1">90</option>
+        <option class="사이즈2">95</option>
+      </select>
+  </form>
+
+  <div id="test"></div>
+
+  <style>
+    .form-hide{
+      display: none;
+    }
+  </style>
+
+  
+  <script>
+
+  // 왜 배움?
+    // 실제 쇼핑몰은 사이즈가 매일 바뀔 것인데, 이럴 경우 하드코딩 하는 것보다
+    // 서버에서 보낸 데이터 갯수에 맞게 <option>태그 생성해야 함
+      
+
+  // html 생성 문법
+    var a = document.createElement('p');
+    a.innerHTML = 'html 생성 문법';
+    document.querySelector('#test').appendChild(a);  // id test인 곳에 변수 a 집어넣어줘
+
+
+  // insertAdjacentHTML: 문자형 html 넣어주는 함수
+  // beforeend: 안쪽 맨 밑
+    var 템플릿 = '<p>html 생성 문법 2</p>';
+    document.querySelector('#test').insertAdjacentHTML('beforeend', 템플릿);
+
+  // 제이쿼리
+    var 템플릿 = '<p>이건 제이쿼리 html 생성</p>';
+    $('#test').append(템플릿);  // .append() : 선택한 요소의 내용의 끝에 콘텐트를 추가하는 메서드
+  
+
+
+  // [내 풀이]  바지 선택하면 28, 30 나오게
+  $('.form-select').eq(0).on('input', function(){
+   if($('.form-select').eq(0).val() == "바지"){
+    $('.form-select').eq(1).removeClass('form-hide');
+    }
+  })
+
+  $('.form-select').eq(0).on('input', function(){
+   if($('.form-select').eq(0).val() == "바지"){
+    $('.사이즈1').html(28);
+    $('.사이즈2').html(30);}
+   })
+
+
+  // [풀이]
+    $('.form-select').eq(0).on('input', function(){
+      var 값 = $('.form-select').eq(0).val()
+    if (값 == "셔츠") {
+      $('.form-select').eq(1).removeClass('form-hide');
+    }
+    else if (값 == '바지'){
+      $('.form-select').eq(1).removeClass('form-hide');
+      var 템 = `<option class="사이즈1">28</option>
+        <option class="사이즈2">30</option>`;  // 엔터 원하면 백틱
+        $('.form-select').eq(1).html(템);
+    }
+  })
+
+  </script>
+  
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>

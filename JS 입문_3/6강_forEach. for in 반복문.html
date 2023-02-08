@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <form class="container my-5 form-group">
+      <p>상품선택</p>
+      <select class="form-select mt-2">
+        <option>모자</option>
+        <option>셔츠</option>
+        <option>바지</option>
+      </select>
+      <select class="form-select mt-2 form-hide">
+        <option>90</option>
+        <option>95</option>
+      </select>
+  </form>
+
+  <div id="test"></div>
+
+  <style>
+    .form-hide{
+      display: none;
+    }
+  </style>
+
+  
+  <script>
+
+  // 왜 배움?
+    // 실제 쇼핑몰은 사이즈가 매일 바뀔 것인데, 이럴 경우 하드코딩 하는 것보다
+    // 서버에서 보낸 데이터 갯수에 맞게 <option>태그 생성해야 함
+
+  // 반복문 용도:  1) 코드 반복  2) array, object 데이터 전부 꺼낼 때
+      
+
+    var pants = [28, 30, 32, 34];  // array, 서버에서 보낸 데이터라고 가정
+
+    $('.form-select').eq(0).on('input', function(){
+      var 값 = $('.form-select').eq(0).val()
+    if (값 == "셔츠") {
+      $('.form-select').eq(1).removeClass('form-hide');
+    }
+    else if (값 == '바지'){
+      $('.form-select').eq(1).removeClass('form-hide');
+      $('.form-select').eq(1).html('');
+
+  // forEach 반복문: array에 붙일 수 있음. pants 데이터 갯수만큼 콜백함수 안에 있는 코드 실행
+      // pants.forEach(function(data){
+      pants.forEach((data) => {   // arrow function 사용 가능(주의. 함수 안의 this 뜻이 달라질 수 있음)
+  // 파라미터 안에 2개 작명 가능. function(data, i) -> data는 array 안에 있던 데이터들, i는 0부터 1씩 증가하는 정수
+        $('.form-select').eq(1).append(`<option>${data}</option>`);
+      });
+
+      }
+    }) 
+
+
+  // for in 반복문: object 자료 갯수만큼 반복문 돌리기
+
+  var obj = {name : 'kim', age : 20}
+
+  for (var key in obj){
+    console.log(1) // 1이 두 번 출력
+    console.log(obj[key]) // 값(value) 출력
+  }
+
+
+
+  </script>
+  
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>

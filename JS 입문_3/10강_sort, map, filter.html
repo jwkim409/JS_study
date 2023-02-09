@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+
+        <!-- <div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100">
+          <h5>Card title</h5>
+          <p>가격 : 70000</p>
+        </div> -->
+
+      </div>
+    </div>
+
+    
+    <div class="container my-3">
+      <button class="btn btn-danger" id="price">가격순 정렬</button>
+     </div>
+
+    
+    <script>
+
+      var products = [
+        { id : 0, price : 70000, title : 'Blossom Dress' },
+        { id : 1, price : 50000, title : 'Springfield Shirt' },
+        { id : 2, price : 60000, title : 'Black Monastery' }
+      ];
+
+// 낮은가격순 정렬
+      $('#price').click(function(){
+
+        products.sort(function(a,b){  // a, b는 object임
+          return a.price - b.price
+          });
+
+         $('.row').html('');  // 1. 카드 3개였던 div의 내용 제거
+
+        products.forEach((a, i) => {  // 2. products 갯수만큼 카드 생성
+        var 템플릿 =
+        `<div class="col-sm-4">
+        <img src="https://via.placeholder.com/600" class="w-100">
+        <h5> ${a.title} </h5>
+        <p>가격 : ${a.price} </p>
+      </div>`;
+        $('.row').append(템플릿);
+      })
+      });
+
+
+
+// array 정렬 - 문자순
+      var 문자순 = ['a','c','b'];
+      문자순.sort();
+      console.log(문자순)
+
+ // array 정렬 - 문자 역순 (11강에 주석 설명)
+     var 역문자순 = ['a','c','b'];
+     역문자순.reverse()
+    //  역문자순.sort((a, b) => {
+    // if(a < b) return 1;
+    // if(a === b) return 0;
+    // if(a > b) return -1; 
+    //  });
+     console.log(역문자순)
+
+// array 정렬 - 오름차순 (내림차순은 b-a)
+      var 숫자순 = [7,3,5,2,40];
+      숫자순.sort(function(a,b){  // a, b는 array안에 자료 (7,3)
+        return a - b  // return 오른쪽이 양수면 a 데이터를 오른쪽으로  음수면 b를 오른쪽으로. 7-3=2(양), 7을 오른쪽...반복
+      });
+      console.log(숫자순)
+
+// .filter()
+      필터 = [7,3,5,2,40];
+      var 변수에저장해서쓰기 = 필터.filter(function(a){  // 원본을 건드리지 않아서 변수에 저장해서 씀
+        return a < 4  // 4 미만의 자료를 남길 거야
+      });
+      console.log(변수에저장해서쓰기)
+
+// .map() : array 자료 전부 변형  (달러 표시 상품 가격인데 전부 원화로 변경하려면?)
+      맵 = [7,3,5,2,40];
+      var 맵어레이 = 맵.map(function(a){
+        return a * 4
+      });
+      console.log(맵어레이)
+
+
+
+
+
+ // js로 html에 상품 3개 생성
+      products.forEach((a, i) => {  // a(파라미터): products 안에 있는 하나하나의 데이터
+        var 템플릿 =
+        `<div class="col-sm-4">
+        <img src="https://via.placeholder.com/600" class="w-100">
+        <h5> ${a.title} </h5>
+        <p>가격 : ${a.price} </p>
+      </div>`;
+      $('.row').append(템플릿)
+      // console.log(a) = console.log(products[i])  ->  products[i]를 a로 대체 가능
+      });
+      
+
+
+     </script>
+
+      <div class="container">
+       <button class="btn btn-danger" id="more">더보기</button>
+      </div>
+
+    <script> // 더보기 버튼 누르면 데이터 가져오기
+
+      $('#more').click(function(){
+      $.get("https://codingapple1.github.io/js/more1.json").done(function(data){
+        console.log(data);
+
+        data.forEach((a, i) => {
+        var 템플릿 =
+        `<div class="col-sm-4">
+        <img src="https://via.placeholder.com/600" class="w-100">
+        <h5> ${a.title} </h5>
+        <p>가격 : ${a.price} </p>
+      </div>`;
+      $('.row').append(템플릿)
+
+      })})})
+
+
+      $('#more').click(function(){
+      $.get("https://codingapple1.github.io/js/more2.json").done(function(data){
+        console.log(data);
+
+        data.forEach((a, i) => {
+        var 템플릿 =
+        `<div class="col-sm-4">
+        <img src="https://via.placeholder.com/600" class="w-100">
+        <h5> ${a.title} </h5>
+        <p>가격 : ${a.price} </p>
+      </div>`;
+      $('.row').append(템플릿)
+
+      })})})
+
+
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>

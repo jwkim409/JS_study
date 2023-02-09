@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+
+        <!-- <div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100">
+          <h5>Card title</h5>
+          <p>가격 : 70000</p>
+        </div> -->
+
+      </div>
+    </div>
+
+    
+    <script> // js로 html에 상품 3개 생성
+
+      var products = [
+        { id : 0, price : 70000, title : 'Blossom Dress' },
+        { id : 1, price : 50000, title : 'Springfield Shirt' },
+        { id : 2, price : 60000, title : 'Black Monastery' }
+      ];
+
+  // var 템플릿 =
+  //       `<div class="col-sm-4">
+  //       <img src="https://via.placeholder.com/600" class="w-100">
+  //       <h5> ${products[0].title} </h5>
+  //       <p>가격 : ${products[0].price} </p>
+  //     </div>`;
+  //     $('.row').append(템플릿)
+
+      // [1], [2]로 바뀌어서 반복됨 -> 반복문
+
+      products.forEach((a, i) => {  // a(파라미터): products 안에 있는 하나하나의 데이터
+        var 템플릿 =
+        `<div class="col-sm-4">
+        <img src="https://via.placeholder.com/600" class="w-100">
+        <h5> ${a.title} </h5>
+        <p>가격 : ${a.price} </p>
+      </div>`;
+      $('.row').append(템플릿)
+      // console.log(a) = console.log(products[i])  ->  products[i]를 a로 대체 가능
+      });
+      
+     </script>
+
+      <div class="container">
+       <button class="btn btn-danger" id="more">더보기</button>
+      </div>
+
+    <script> // 더보기 버튼 누르면 데이터 가져오기
+
+      $('#more').click(function(){
+      $.get("https://codingapple1.github.io/js/more1.json").done(function(data){
+        console.log(data);
+
+        data.forEach((a, i) => {
+        var 템플릿 =
+        `<div class="col-sm-4">
+        <img src="https://via.placeholder.com/600" class="w-100">
+        <h5> ${a.title} </h5>
+        <p>가격 : ${a.price} </p>
+      </div>`;
+      $('.row').append(템플릿)
+
+      })})})
+
+
+      $('#more').click(function(){
+      $.get("https://codingapple1.github.io/js/more2.json").done(function(data){
+        console.log(data);
+
+        data.forEach((a, i) => {
+        var 템플릿 =
+        `<div class="col-sm-4">
+        <img src="https://via.placeholder.com/600" class="w-100">
+        <h5> ${a.title} </h5>
+        <p>가격 : ${a.price} </p>
+      </div>`;
+      $('.row').append(템플릿)
+
+      })})})
+
+
+
+      
+                             // 응용문제 두 번 눌렀을 때 버튼 사라지게
+
+      // 카드만들기(products); //반복문 함수로 축약
+
+      // function 카드만들기(data) {
+      //   data.forEach((a, i) => {
+      //     var 템플릿 = `<div class="col-sm-4">
+      //   < img src="https://via.placeholder.com/600" class="w-100">
+      //   <h5>${data[i].title}</h5>
+      //   <p>가격 : ${data[i].price}</p>
+      // </div>`;
+      //     $(".row").append(템플릿);
+      //   });
+      // }
+
+
+      // var 클릭횟수 = 1;
+      // $("#more").on("click", function (a, i) {
+      //   if (클릭횟수 == 1) {
+      //     $.get("https://codingapple1.github.io/js/more1.json").done(function (
+      //       data
+      //     ) {
+      //       카드만들기(data);
+      //       클릭횟수++;
+      //     });
+      //   } else if (클릭횟수 == 2) {
+      //     $.get("https://codingapple1.github.io/js/more2.json ").done(function (
+      //       data
+      //     ) {
+      //       카드만들기(data);
+      //       $("#more").addClass("form-hide");    // display-none 클래스 추가해서 버튼숨기기
+      //     });
+      //   }
+      // });
+
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>b

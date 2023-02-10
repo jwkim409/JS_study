@@ -1,0 +1,22 @@
+.gray{
+  background-color: lightgray;
+  height: 2000px;
+  margin-top: 500px;
+}
+
+.image{
+  float: right;
+  width: 400px;
+  position: sticky;
+  top: 100px;  /* 어디에 고정(스티키) 될 건지 */
+
+  /* 이미지에 position : sticky를 주면
+  1. 스크롤이 되어서 이미지가 보이는 순간
+  2. viewport의 맨 위에서부터 100px 위치에서 고정
+  3. 그리고 부모 박스를 넘어서 스크롤 되면 이미지도 같이 사라짐 */
+}
+
+.text{
+  float: left;
+  width: 300px;
+}

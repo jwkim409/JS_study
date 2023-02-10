@@ -1,0 +1,16 @@
+.card-background {
+  height: 3000px;
+  margin-top: 800px;
+  margin-bottom: 1600px;
+}
+
+.card-box img {   /* 가운데 정렬 */
+  display: block;
+  margin: auto;
+  max-width: 80%;
+}
+.card-box {
+  position: sticky;  /* 스크롤 하면서 상단에 고정 */
+  top: 400px; /* 좌표속성 필요 */
+  margin-top: 200px;
+}

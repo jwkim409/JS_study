@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <link href="./css/16강.css" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="card-background">
+    <div class="card-box">
+      <img src="./img/card1.png">
+    </div>
+    <div class="card-box">
+      <img src="./img/card2.png">
+    </div>
+    <div class="card-box">
+      <img src="./img/card3.png">
+    </div>
+  </div>
+  
+  <script>
+
+    $(window).scroll(function(){
+     var 높이 = $(window).scrollTop();  // .scrollTop : 현재 스크롤바 높이 알려줌
+      console.log(높이)  // 시작점 625 투명도 0 , 끝나는 점 1250 투명도 1
+
+    // 650~1150까지 스크롤바 내리면
+    // 첫째 카드의 opacity 1~0으로 서서히 변경해줘
+
+        // var y = a * 높이 + b;   // 1차함수 방정식 y=ax+b  x축(650, 1150)은 높이, y축은 opacity(0,1) (그래프 그려보면 1차함수)
+        // 1 = a * 650 + b; 
+        // 0 = a * 1150 + b;
+        // // 연립방정식 해 구하면
+        // a = -1/500;
+        // b = 115/50;
+      
+      var y = -1/500 * 높이 + 115/50;
+      $('.card-box').eq(0).css('opacity', y);  // y = 625~1250 스크롤될 때 0~1이 되는 가변적인 값 -> 1차함수
+
+
+      
+    // 트렌스폼 스케일 현재 창을 650~1150만큼 스크롤 했을 때
+    // 카드의 크기가 1에서 0.9로 작아지도록 해줘
+      
+        // var z = a * 높이 + b
+        // 0.9 = a * 1150 + b
+        // 1 = a * 650 + b
+        // a = -1/5000
+        // b = 1.13
+
+      var z = -1/5000 * 높이 + 1.13
+      $('.card-box').eq(0).css('transform', `scale( ${z})`); 
+      
+    
+    });
+
+  </script>
+
+</body>
+</html>

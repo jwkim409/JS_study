@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<div id = "quiz">
+  <h4>물에 빠지면 누구 먼저 구할 거?</h4>
+  <button>사람</button>
+  <button>동물</button>
+  <button>식물</button>
+</div>
+
+  <script>
+
+    // if는 다양한 조건식 가능. switch는 1개 변수만 테스트 가능 (변수 === 3, 변수 === 4)
+
+    let 변수 = 2 + 2;
+    switch(변수){
+      case 3:
+        alert('변수가 3이네요');
+        break  // 스위치문 실행 중지해주세요
+      case 4: 
+        alert('변수가 4네요');
+        break
+       default: 
+        alert('아무것도 해당 안 됨')
+    }
+
+
+    document.querySelector('#quiz').addEventListener('click', function(e){
+      switch (e.target.innerHTML){
+        case '사람': 
+          alert('사람을 좋아하시네요')
+          break;
+        case '동물': 
+          alert('동물을 좋아하시네요')
+          break;
+         case '식물': 
+          alert('식물을 좋아하시네요')
+          break;
+      }
+    })
+
+  </script>
+</body>
+</html>
